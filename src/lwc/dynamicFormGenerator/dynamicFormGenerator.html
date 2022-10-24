@@ -1,0 +1,36 @@
+<!--
+ - Created by Aliaksandr_Kazlovich on 17.10.2022.
+ -->
+<template>
+    <lightning-card title="FormGenerator" icon-name="custom:custom63">
+        <div class="slds-m-around_medium">
+            <template if:true={json}>
+                <template for:each={json} for:item="jsonItem">
+                    <div key={jsonItem.id}>
+                        <template key={jsonItem.id} if:true={jsonItem.isPicklist}>
+                            <c-picklist-form key={jsonItem.id} label={jsonItem.label} options={jsonItem.options}></c-picklist-form>
+                        </template>
+                        <template key={jsonItem.id} if:true={jsonItem.isText}>
+                            <c-text-form key={jsonItem.id}
+                                         id={jsonItem.id}
+                                         type={jsonItem.type}
+                                         value={jsonItem.value}
+                                         name={jsonItem.name}
+                                         label={jsonItem.label}
+                                         oneditmode={handleEditMode}
+                            >
+                            </c-text-form>
+                        </template>
+                        <hr/>
+                    </div>
+                </template>
+            </template>
+            <template if:true={isEdit}>
+                <div style="opacity: 0.9; height: 60px;box-shadow: 0px 2px 5px silver; background-color: #EEEDEC" class="slds-align_absolute-center">
+                    <lightning-button variant="neutral" label="Cancel" class="slds-m-right_xx-small" onclick={handleCancel}></lightning-button>
+                    <lightning-button variant="brand" label="Save" onclick={handleSave}></lightning-button>
+                </div>
+            </template>
+        </div>
+</lightning-card>
+</template>

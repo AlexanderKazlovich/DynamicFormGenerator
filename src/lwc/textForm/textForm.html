@@ -1,0 +1,27 @@
+<!--
+ - Created by Aliaksandr_Kazlovich on 24.10.2022.
+ -->
+
+<!-- Text Form -->
+<template>
+    <label class="slds-form-element__label" for="text-input-id-51">{label}</label>
+    <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_right">
+        <input data-id={id}
+               id="text-input-id-47"
+               onmouseenter={handleMouseEnter}
+               onmouseout={handleMouseOut}
+               ondblclick={handleEditMode}
+               class="slds-input input-custom"
+               type={type}
+               readonly
+               onchange={handleChange}
+               value={value}
+        />
+        <button onclick={handleEditMode} class="slds-button slds-button_icon slds-input__icon slds-input__icon_right" title="Edit">
+            <svg data-id={id} class="slds-button__icon slds-icon-text-light" aria-hidden="true">
+                <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#edit"></use>
+            </svg>
+            <span class="slds-assistive-text">Edit</span>
+        </button>
+    </div>
+</template>
